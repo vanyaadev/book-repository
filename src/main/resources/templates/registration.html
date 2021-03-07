@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <th:block th:insert="head :: headCode"></th:block>
+    <title>Registration</title>
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/home">
+        <img src="../img/book_logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        Book repository
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item border-right">
+                <a class="nav-link" th:href="@{/login}">Login </a>
+            </li>
+            <li class="nav-item  border-right">
+                <a class="nav-link" th:href="@{/registration}">Registration <span class="sr-only">(current)</span> </a>
+            </li>
+        </ul>
+
+    </div>
+</nav>
+
+<div class="container">
+    <div class="d-flex justify-content-center mt-3">
+        <form action="#" th:action="@{/save}" th:object="${user}" method="POST" class="card p-3 align-items-center"
+              enctype="multipart/form-data">
+            <div>
+                <h2 class="heading"> CREATE ACCOUNT </h2>
+            </div>
+
+            <div class="alert alert-danger error" th:if="${occurredUserException}">
+                <h5 th:text="${exceptionUserMessage}" class="error"></h5>
+            </div>
+
+            <div class="alert alert-danger error" th:if="${occurredPasswordException}">
+                <h5 th:text="${exceptionPasswordMessage}" class="error"></h5>
+            </div>
+
+            <div class="form-group">
+                <div class="input-group-prepend">
+
+                    <input type="text" th:field="*{username}" class="form-control form-control-lg"
+                           id="inputUsername" name="username" placeholder="Username" th:errorclass="error-red-bd">
+                </div>
+                <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="error"></p>
+            </div>
+            <div class="form-group">
+                <div class="input-group-prepend">
+
+                    <input type="password" th:field="*{password}" class="form-control form-control-lg"
+                           th:classappend="${occurredPasswordException} ? 'error-red-bd'" id="inputPassword"
+                           placeholder="Enter password" name="password" th:errorclass="error-red-bd">
+                </div>
+                <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="error"></p>
+            </div>
+            <div class="form-group">
+                <div class="input-group-prepend">
+
+                    <input type="password" th:field="*{confirmedPassword}" class="form-control form-control-lg"
+                           th:classappend="${occurredPasswordException} ? 'error-red-bd'" id="inputConfirmPassword"
+                           placeholder="Enter password again" name="confirmedPassword" th:errorclass="error-red-bd">
+                </div>
+                <p th:if="${#fields.hasErrors('confirmedPassword')}" th:errors="*{confirmedPassword}" class="error"></p>
+            </div>
+
+            <div class="form-group row btn-div">
+                <div class="col-auto confirm-btn">
+                    <button type="submit" class="btn btn-outline-dark">
+                        <i class="fas fa-user-plus"></i>Create
+                    </button>
+                </div>
+                <div class="col-auto btn-back">
+                    <a th:href="@{/login}" class="btn btn-outline-dark">
+                        <i class="fas fa-chevron-left"></i> Back
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

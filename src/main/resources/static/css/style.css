@@ -1,0 +1,261 @@
+body {
+    font-family: 'Bookman Old Style', monospace;
+}
+
+.container {
+    text-align: center;
+    padding: 0 !important;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.heading {
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: .25rem;
+    padding-top: .25rem;
+}
+
+.form-group {
+    margin: auto;
+}
+
+
+.btn-back {
+    margin-bottom: 2rem;
+}
+
+.btn-back > a {
+    font-weight: bold;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.btn-back > a > i {
+    padding-right: .5rem;
+}
+
+.confirm-btn > button {
+    font-weight: bold;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    margin-bottom: .5rem;
+}
+
+.confirm-btn > button > i {
+    padding-right: .5rem;
+}
+
+.add-btn {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.add-btn > a {
+    font-weight: bold;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    margin-bottom: .5rem;
+    font-size: calc(10px + 0.5vw);
+}
+
+.add-btn > a > i {
+    padding-right: .5rem;
+}
+
+a:hover, input:hover {
+    color: #1abc9c !important;
+}
+
+.active > a {
+    color: #1abc9c !important;;
+}
+
+label {
+    font-weight: bold;
+}
+
+.txt-shadow {
+    text-shadow: -2px 0 5px whitesmoke,
+    0 3px 5px whitesmoke,
+    3px 0 5px whitesmoke,
+    0 -5px 5px whitesmoke;
+}
+
+.md-txt {
+    font-size: calc(10px + 0.5vw);
+}
+
+.big-txt {
+    font-size: calc(15px + 0.5vw);
+}
+
+.table-lg-mrg-padd {
+    margin-bottom: 3rem;
+    margin-top: 3rem;
+}
+
+.table-lg-mrg-padd > tbody > tr > td, .table-lg-mrg-padd > tbody > tr > th, .table-lg-mrg-padd > tfoot > tr > td, .table-lg-mrg-padd > tfoot > tr > th, .table-lg-mrg-padd > thead > tr > td, .table-lg-mrg-padd > thead > tr > th {
+    padding: 20px;
+}
+
+.alert {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.error {
+    text-align: center;
+    color: red !important;
+}
+
+.error-red-bd {
+    border-color: red !important;
+}
+
+table {
+    margin-bottom: 4rem !important;
+    counter-reset: section;
+    text-align: center !important;
+}
+
+.tb-border {
+    border: 1px solid lightgray;
+}
+
+.count:before {
+    counter-increment: section;
+    content: counter(section);
+}
+
+body, html {
+    height: 100%;
+}
+
+.table-striped {
+    margin-top: 1.5rem;
+    margin-left: .5rem;
+}
+
+nav > div > ul > li {
+    padding-right: 1.5rem !important;
+    padding-left: 1.5rem !important;
+}
+
+.container > h1 {
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+form > h1 {
+    text-align: center;
+    margin-top: 1rem;
+    font-weight: bold;
+}
+
+.home-head {
+    margin-top: 5rem;
+    text-align: center;
+}
+
+
+.home-head > h1 {
+    margin-bottom: .25rem;
+    font-size: calc(22px + 2vw);
+    font-weight: 400;
+}
+
+.home-head > p {
+    margin-bottom: .25rem;
+    font-size: calc(11px + 0.5vw);
+    font-weight: 400;
+}
+
+#inputFirm {
+    margin-top: .25rem;
+}
+
+#inputFirmCity {
+    margin-top: 1rem;
+}
+
+.btn-div {
+    padding-top: 1.5rem;
+    margin-bottom: 0 !important;
+    justify-content: center;
+}
+
+input, input::placeholder {
+    text-align: center;
+}
+
+
+.low-width {
+    max-width: 70vh;
+}
+
+.md-width {
+    max-width: 100vh;
+}
+
+
+.search-file-div {
+    padding-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.search-file-btn {
+    margin-right: .5rem;
+    padding: .5rem;
+    color: black !important;
+    background-color: #ced4da !important;
+    border-color: #ced4da !important;
+}
+
+.book > th {
+    vertical-align: middle !important;
+}
+
+.book > td {
+    padding-top: 3rem !important;
+}
+
+.book > label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.book > td > img, .book > div > img {
+    width: calc(170px + 10vw);
+    height: calc(220px + 12vw);
+}
+
+.book > div > div {
+    margin-top: 1.5rem;
+}
+
+.navbar-nav {
+    display: inline-block !important;
+}
+
+.navbar-nav li {
+    display: inline-block !important;
+}
+
+navbar {
+    background-color: #cecece;
+}
+
+.nav-link {
+    font-size: 1.3rem;
+}
+
+
+.table-header {
+    background-color: #d2f1eb;
+}
+

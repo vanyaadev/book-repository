@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <th:block th:insert="head :: headCode"></th:block>
+    <title>Login</title>
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/home">
+        <img src="../img/book_logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        Book repository
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item border-right">
+                <a class="nav-link" th:href="@{/login}">Login </a>
+            </li>
+            <li class="nav-item border-right">
+                <a class="nav-link" th:href="@{/registration}">Registration <span class="sr-only">(current)</span> </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="d-flex justify-content-center mt-3">
+        <form name="f" th:action="@{/login}" method="POST" class="card p-3 align-items-center"
+              enctype="multipart/form-data">
+            <div>
+                <h2 class="heading"> LOGIN </h2>
+            </div>
+
+            <div th:if="${param.error}" class="alert alert-danger">
+                Invalid username or password.
+            </div>
+
+            <div th:if="${param.logout}" class="alert alert-success">
+                You have been logged out.
+            </div>
+
+            <div class="form-group">
+                <div class="input-group-prepend">
+                    <input type="text" class="form-control form-control-lg" id="inputUsername"
+                           name="username" placeholder="Enter username">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group-prepend">
+                    <input type="password" class="form-control form-control-lg" id="inputPassword"
+                           name="password" placeholder="Enter password">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-auto confirm-btn">
+                    <button type="submit" class="btn btn-outline-dark">Sign in</button>
+                    <a class="nav-link" th:href="@{/registration}">Register now </a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

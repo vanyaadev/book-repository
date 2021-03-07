@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <th:block th:insert="head :: headCode"></th:block>
+    <title>Catalog</title>
+</head>
+
+<body>
+<div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/home">
+            <img src="../img/book_logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            Book repository
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item border-right">
+                    <a class="nav-link" th:href="@{/home}">Home </a>
+                </li>
+                <li class="nav-item border-right">
+                    <a class="nav-link" th:href="@{/books/catalog}">Catalog <span class="sr-only">(current)</span> </a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item border-left">
+                    <a class="nav-link" th:href="@{/logout}">Sign out</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <table class="table table-striped tb-border table-hover big-txt">
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Firm</th>
+            <th>Publication year</th>
+            <th class="text-center">Details/ Edit/ Remove</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="book: ${books}">
+            <td th:text="${book.title}"/>
+            <td th:text="${book.author.name}"/>
+            <td th:text="${book.firm.name}"/>
+            <td th:text="${book.publicationYear}"/>
+
+            <td class="text-center">
+                <a th:href="@{/books/{id}(id=${book.id})}" class="btn btn-outline-dark" title="View">
+                    <i class="fas fa-book-open"></i>
+                </a>
+
+                <a th:href="@{/books/edit/{id}(id=${book.id})}" class="btn btn-outline-dark" title="Edit">
+                    <i class="fas fa-edit"></i>
+                </a>
+
+                <a class="btn btn-outline-dark" title="Delete"
+                   th:with="url = @{/books/delete/{id}(id=${book.id})}" th:onclick="sendDelete([[${url}]])">
+                    <i class="far fa-trash-alt"></i>
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="add-btn">
+        <a th:href="@{/books/add}" class="btn btn-outline-dark">
+            <i class="fas fa-plus"></i>Add book
+        </a>
+    </div>
+</div>
+</body>
+</html>

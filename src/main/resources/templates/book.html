@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <th:block th:insert="head :: headCode"></th:block>
+    <title>Book</title>
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/home">
+        <img src="../img/book_logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        Book repository
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item border-right">
+                <a class="nav-link" th:href="@{/home}">Home </a>
+            </li>
+            <li class="nav-item border-right">
+                <a class="nav-link" th:href="@{/books/catalog}">Catalog <span class="sr-only">(current)</span> </a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item border-left">
+                <a class="nav-link" th:href="@{/logout}">Sign out</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container big-txt" th:object="${book}">
+    <h1 th:text="*{title}"></h1>
+    <table class="table table-lg-padd">
+        <tbody>
+        <tr class="book">
+            <td>
+                <img style="width: 150px; height: 200px" th:src="*{'data:image/jpeg;base64,'+{image}}"
+                     th:onerror="'this.src=\'' + @{/img/imgNotFound.jpg} + '\';'">
+            </td>
+        </tr>
+        <tr>
+            <td th:text="*{author.name}"/>
+        </tr>
+        <tr>
+            <td th:utext="${book.firm.name}+',<br> '+ ${book.firm.city}"/>
+        </tr>
+        <tr>
+            <td th:text="*{publicationYear}"/>
+        </tr>
+
+        </tbody>
+    </table>
+    <div class="col-auto btn-back">
+        <a th:href="@{/books/catalog}" class="btn btn-secondary btn-lg">
+            <i class="fas fa-chevron-left"></i> Back
+        </a>
+    </div>
+</div>
+</body>
+</html>
